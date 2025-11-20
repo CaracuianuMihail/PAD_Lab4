@@ -1,0 +1,29 @@
+﻿@using PostMaker.Models
+@model CreatePostViewModel
+
+@{
+    ViewData["Title"] = "Create Post";
+}
+
+<div class="create-post-card">
+
+    <h2>Create New Post</h2>
+
+    @using (Html.BeginForm("CreatePost", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Author)
+            @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Content)
+            @Html.TextAreaFor(x => x.Content, new { @class = "form-control", rows = 5 })
+        </div>
+
+        <button type="submit" class="btn-submit-post">Publish</button>
+
+        @Html.ValidationSummary("", new { @class = "validation-summary" })
+    }
+
+</div>

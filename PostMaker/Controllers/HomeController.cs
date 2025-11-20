@@ -1,4 +1,7 @@
 using System.Diagnostics;
+using BLL.Abstract;
+using DAL.Abstract;
+using DataContract;
 using Microsoft.AspNetCore.Mvc;
 using PostMaker.Models;
 
@@ -6,20 +9,44 @@ namespace PostMaker.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IPostService _postService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IPostService postService)
         {
-            _logger = logger;
+            _postService = postService;
         }
 
         public IActionResult Index()
         {
+            var dtos = _postService.GetPosts();
+            var posts = dtos.Select(x => new PostViewModel()
+            {
+                Author = x.Author,
+                Content = x.Content,
+                Created = x.Created.ToString()
+            }).ToList();
+
+            return View(posts);
+        }
+        [HttpGet]
+        public IActionResult CreatePost()
+        {
             return View();
         }
-
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult CreatePost(CreatePostViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var dto = new PostDTO
+                {
+                    Author = model.Author,
+                    Content = model.Content,
+                };
+
+                _postService.CreatePost(dto);
+                return RedirectToAction("Index");
+            }
             return View();
         }
 

@@ -1,22 +1,164 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+/* --------------------------------------- */
+/*      SOCIAL MEDIA FEED LOOK & FEEL      */
+/* --------------------------------------- */
+
+.container {
+    max-width: 700px;
+}
+
+/* Card pentru fiecare post */
+.post-card {
+    background: #fff;
+    padding: 18px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* Header: autor + timp */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.post-author {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.post-time {
+    font-size: 13px;
+    color: #777;
+}
+
+/* Content */
+.post-content {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Butoane */
+.post-actions button {
+    background: #1877f2;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+    .post-actions button:hover {
+        background: #0f60c7;
+        transform: scale(1.03);
+    }
+
+    .post-actions button:active {
+        transform: scale(0.96);
+    }
+
+/* Butonul Create New Post */
+.btn-primary {
+    background-color: #42b72a !important;
+    border-color: #42b72a !important;
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 6px;
+}
+
+    .btn-primary:hover {
+        background-color: #36a420 !important;
+        border-color: #36a420 !important;
+    }
+/* Card stil social media */
+.create-post-card {
+    background: #fff;
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+    .create-post-card h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+/* Form styling */
+.form-group {
+    margin-bottom: 18px;
+}
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    resize: vertical;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #1877f2;
+        box-shadow: 0 0 0 2px rgba(24, 118, 242, 0.2);
+    }
+
+/* Submit button */
+.btn-submit-post {
+    background: #42b72a;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .2s;
+    margin-top: 5px;
+}
+
+    .btn-submit-post:hover {
+        background: #36a420;
+        transform: scale(1.02);
+    }
+
+.validation-summary {
+    margin-top: 15px;
+    color: #b80000;
 }
